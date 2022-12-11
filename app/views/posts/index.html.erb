@@ -1,0 +1,32 @@
+<a href="/posts/new">새 글 작성</a>
+<hr/>
+<table border="1">
+  <tr>
+    <th>id</th>
+    <th>제목</th>
+    <th>내용</th>
+    <th>생성일</th>
+    <th>수정일 </th>
+    <!-- 상세 페이지 링크 추가-->
+    <th>상세</th>
+    <!-- 게시글 수정 링크 추가-->
+    <th>수정</th>
+    <!-- 게시글 삭제 링크 추가-->
+    <th>삭제</th>    
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id  %></td>
+      <td><%= post.title %></td>
+      <td><%= post.content  %></td>
+      <td><%= post.created_at %></td>
+      <td><%= post.updated_at %></td>
+      <!-- 상세 페이지 링크 추가-->
+      <td><a href="/posts/show/<%= post.id %>">보기</a></td>
+      <!-- 게시글 수정 링크 추가-->
+      <td><a href="/posts/edit/<%= post.id %>">수정</a></td>
+      <!-- 게시글 삭제 링크 추가-->
+      <td><a href="/posts/destroy/<%= post.id %>">삭제</a></td>
+    </tr>
+  <% end %>
+</table>
